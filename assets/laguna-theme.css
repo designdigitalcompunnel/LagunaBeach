@@ -1,49 +1,61 @@
-/* Laguna Beach palette, with deeper shades for text and pale tints for surfaces. */
+/* Reference colors and the neutral surfaces used throughout the demo. */
 :root {
-  --cyan: #35bbca;
-  --ocean: #0191b4;
-  --gold: #f8d90f;
-  --green: #d3dd18;
-  --tangerine: #fe7a15;
-  --ink: #06131f;
-  --navy: color-mix(in srgb, var(--ocean) 25%, var(--ink));
-  --navy-d: color-mix(in srgb, var(--ocean) 15%, var(--ink));
+  --blue: #0000ff;
+  --yellow: #ffff00;
+  --fern: #417f32;
+  --ink: #171c25;
+  --navy: #242a34;
+  --navy-d: #1d222b;
   --navy-dd: var(--ink);
-  --navy-l: color-mix(in srgb, var(--ocean) 45%, var(--ink));
-  --ocean-d: color-mix(in srgb, var(--ocean) 72%, var(--ink));
-  --ocean-dd: color-mix(in srgb, var(--ocean) 57%, var(--ink));
-  --aqua-light: color-mix(in srgb, var(--cyan) 54%, white);
-  --aqua-wash: color-mix(in srgb, var(--cyan) 13%, white);
-  --blue-wash: color-mix(in srgb, var(--ocean) 7%, white);
-  --sand: color-mix(in srgb, var(--gold) 12%, white);
-  --sunset-wash: color-mix(in srgb, var(--tangerine) 11%, white);
-  --line: color-mix(in srgb, var(--ocean) 22%, white);
-  --orange: var(--ocean-d);
-  --orange-d: var(--ocean-d);
-  --orange-dd: var(--ocean-dd);
-  --orange-lt: var(--aqua-light);
-  --orange-wash: var(--aqua-wash);
-  --brick: var(--ocean-d);
-  --brick-d: var(--ocean-d);
-  --teal: var(--ocean-d);
-  --teal-d: var(--ocean-dd);
-  --ochre: var(--gold);
-  --ochre-lt: var(--sand);
-  --ivory: var(--blue-wash);
-  --sage: var(--green);
-  --sage-lt: color-mix(in srgb, var(--green) 15%, white);
-  --mist: color-mix(in srgb, var(--cyan) 31%, white);
-  --mist-lt: var(--aqua-wash);
-  --slate: color-mix(in srgb, var(--navy) 68%, white);
-  --slate-d: color-mix(in srgb, var(--navy) 78%, white);
+  --navy-l: #3c4553;
+  --blue-strong: color-mix(in srgb, var(--blue) 79%, var(--ink));
+  --blue-deep: color-mix(in srgb, var(--blue) 64%, var(--ink));
+  --blue-light: color-mix(in srgb, var(--blue) 39%, white);
+  --blue-wash: color-mix(in srgb, var(--blue) 7%, white);
+  --blue-wash-strong: color-mix(in srgb, var(--blue) 12%, white);
+  --yellow-wash: color-mix(in srgb, var(--yellow) 24%, white);
+  --fern-wash: color-mix(in srgb, var(--fern) 10%, white);
+  --fern-deep: color-mix(in srgb, var(--fern) 71%, var(--ink));
+  --link: var(--fern-deep);
+  --link-on-dark: color-mix(in srgb, var(--fern) 39%, white);
+  --line: #dbe1e9;
+  --chip-bg: #f5f7fa;
+  --chip-line: #c6cfdb;
+  --chip-ink: #303a49;
+  --chip-radius: 6px;
+  --slate: #657080;
+  --slate-d: #4d5868;
+  --ivory: var(--chip-bg);
   --charcoal: var(--ink);
-  --rose: var(--tangerine);
-  --rose-lt: var(--sunset-wash);
+  --cyan: var(--blue);
+  --ocean: var(--blue);
+  --ocean-d: var(--blue-strong);
+  --ocean-dd: var(--blue-deep);
+  --aqua-light: var(--blue-light);
+  --aqua-wash: var(--blue-wash-strong);
+  --sand: var(--yellow-wash);
+  --orange: var(--blue);
+  --orange-d: var(--blue-strong);
+  --orange-dd: var(--blue-deep);
+  --orange-lt: var(--blue-light);
+  --orange-wash: var(--blue-wash);
+  --brick: var(--blue);
+  --brick-d: var(--blue-strong);
+  --teal: var(--blue-strong);
+  --teal-d: var(--blue-deep);
+  --ochre: var(--blue);
+  --ochre-lt: var(--blue-wash-strong);
+  --sage: var(--blue-light);
+  --sage-lt: var(--blue-wash);
+  --mist: var(--blue-wash-strong);
+  --mist-lt: var(--blue-wash);
+  --rose: var(--blue);
+  --rose-lt: var(--blue-wash);
 }
 body {color:var(--navy)}
 section[id], main[id] {scroll-margin-top:96px}
 :focus-visible {outline:3px solid var(--ocean-d);outline-offset:4px}
-.on-dark :focus-visible,.nav :focus-visible,.drawer :focus-visible,.search-close:focus-visible {outline:3px solid var(--gold);outline-offset:4px}
+.on-dark :focus-visible,.nav :focus-visible,.drawer :focus-visible,.search-close:focus-visible {outline:3px solid var(--blue-light);outline-offset:4px}
 
 .nav,.nav-inner,.nav.solid .nav-inner,.nav.menu-open .nav-inner,.drawer,footer,.credit {background:var(--ink)}
 .nav.solid .utility {visibility:hidden}
@@ -51,8 +63,21 @@ section[id], main[id] {scroll-margin-top:96px}
 .nav .brand {min-width:190px}
 .nav .brand img,.foot-brand img {object-fit:contain;max-width:100%}
 .nav .brand img {height:48px;width:auto}
-.nav .btn {white-space:nowrap;background:var(--tangerine);color:var(--ink)}
-.nav .btn:hover {background:color-mix(in srgb,var(--tangerine) 78%,white)}
+.btn,.ip-btn,.btn:focus-visible,.ip-page .ip-btn:focus-visible {border-radius:999px}
+.btn:not(.btn--ghost,.btn--glass,.btn--white,.btn--navy),.ip-btn--primary {
+  background:var(--blue);
+  color:#fff;
+}
+.btn:not(.btn--ghost,.btn--glass,.btn--white,.btn--navy) .dot,.ip-btn--primary .dot {
+  background:#fff;
+  color:var(--blue);
+}
+.btn:not(.btn--ghost,.btn--glass,.btn--white,.btn--navy):hover,.ip-btn--primary:hover {background:var(--blue-strong)}
+.btn--ghost {border-color:var(--blue-strong);color:var(--blue-deep)}
+.btn--ghost:hover {background:var(--blue-wash)}
+.btn--glass {background:rgb(23 28 37 / .30)}
+.btn--glass:hover {background:rgb(23 28 37 / .48)}
+.nav .btn {white-space:nowrap}
 .report-glyph {display:none}
 
 .static-icon {cursor:default}
@@ -91,36 +116,53 @@ section[id], main[id] {scroll-margin-top:96px}
   .nav-cta .static-icon {display:none}
 }
 .topshell-bg {
-  background:#3e555d;
+  background:var(--navy-l);
 }
 .topshell-bg video {filter:brightness(1.10) saturate(1.26)}
-/* Keep the black overlay strongest behind the copy and let the coast show through. */
+/* Taper the blue tint and the contrast scrim separately over the coast. */
 .topshell-bg::after {
   background:
-    linear-gradient(90deg, rgb(0 0 0 / .64) 0%, rgb(0 0 0 / .50) 33%, rgb(0 0 0 / .17) 61%, transparent 88%),
-    linear-gradient(180deg, rgb(0 0 0 / .14) 0%, transparent 35%, transparent 66%, rgb(0 0 0 / .20) 100%);
+    linear-gradient(100deg, color-mix(in srgb,var(--blue) 27%,transparent) 0%, color-mix(in srgb,var(--blue) 11%,transparent) 38%, transparent 69%),
+    linear-gradient(90deg, rgb(13 21 34 / .62) 0%, rgb(13 21 34 / .52) 33%, rgb(13 21 34 / .29) 52%, transparent 79%);
 }
 @media(max-width:760px) {
   .topshell-bg::after {
-    background:linear-gradient(180deg, rgb(0 0 0 / .52) 0%, rgb(0 0 0 / .57) 32%, rgb(0 0 0 / .17) 66%, rgb(0 0 0 / .09) 100%);
+    background:
+      linear-gradient(180deg, color-mix(in srgb,var(--blue) 25%,transparent) 0%, color-mix(in srgb,var(--blue) 12%,transparent) 40%, transparent 75%),
+      linear-gradient(180deg, rgb(13 21 34 / .65) 0%, rgb(13 21 34 / .55) 41%, rgb(13 21 34 / .22) 62%, transparent 89%);
   }
 }
-.topshell .hero h1,.topshell .hero .lede {text-shadow:0 2px 12px rgb(0 0 0 / .60),0 1px 3px rgb(0 0 0 / .42)}
+.topshell .hero h1 {text-shadow:0 1px 4px rgb(0 0 0 / .24)}
+.topshell .hero .lede {text-shadow:0 2px 7px rgb(0 0 0 / .48)}
+.topshell .hero-grid {align-items:start}
+.topshell .hero-actions {margin-top:clamp(18px,2.2vw,26px)}
 .topshell .hero-side {
   background:#fff;
   border-color:rgb(255 255 255 / .72);
+  border-top:5px solid var(--yellow);
   color:var(--ink);
   box-shadow:0 20px 42px rgb(0 0 0 / .20);
 }
 .topshell .hero-side p {color:var(--slate-d);font-weight:400}
-.topshell .hero-side :is(.n,.k span,a) {color:var(--ocean-dd)}
+.topshell .hero-side :is(.n,.k span) {color:var(--ocean-dd)}
+.topshell .hero-side a {color:var(--link);text-decoration:underline;text-underline-offset:4px}
 .topshell .hero-side :focus-visible {outline-color:var(--ocean-d)}
 .topshell .qcard::after {background:linear-gradient(180deg, rgb(0 0 0 / .02) 15%, rgb(0 0 0 / .79) 100%)}
-.hero h1 .it,.livepill {color:var(--aqua-light)}
-.livepill {background:color-mix(in srgb,var(--ink) 91%,transparent);border-color:var(--cyan)}
-.livepill i {box-shadow:0 0 0 3px color-mix(in srgb,var(--cyan) 21%,transparent)}
-.river-art path,.foot-art path {stroke:color-mix(in srgb,var(--cyan) 40%,transparent)}
-.hero-video-toggle {display:grid;place-items:center;background:transparent;color:inherit;border:0;padding:0;width:18px;height:18px;cursor:pointer;flex:none}
+.topshell .qcard :is(b,small) {color:#fff}
+.topshell .hero h1 .it,.topshell .hero .lede {color:#fff}
+.topshell :is(.livepill,.eyebrow) {
+  min-height:36px;
+  padding:5px 10px;
+  border:1px solid rgb(255 255 255 / .36);
+  border-radius:var(--chip-radius);
+  background:rgb(23 28 37 / .38);
+  color:#fff;
+  font-size:11px;
+  letter-spacing:.11em;
+}
+.livepill i {box-shadow:0 0 0 3px color-mix(in srgb,var(--blue) 21%,transparent)}
+.river-art path,.foot-art path {stroke:color-mix(in srgb,var(--blue) 40%,transparent)}
+.hero-video-toggle {display:grid;place-items:center;background:transparent;color:inherit;border:0;padding:0;width:24px;height:24px;cursor:pointer;flex:none}
 .hero-video-toggle:not([hidden]) + i {display:none}
 .hero-video-toggle[hidden] {display:none}
 
@@ -129,7 +171,8 @@ section[id], main[id] {scroll-margin-top:96px}
 :root {--photo-filter:saturate(1.25) contrast(1.02)}
 main img,.search .rgroup img {filter:var(--photo-filter)}
 
-.foot-col h2,.foot-brand address a {color:var(--aqua-light)}
+.foot-col h2 {color:var(--aqua-light)}
+.foot-brand address a,.foot-col a[href]:hover {color:var(--link-on-dark)}
 
 #interests,.ip-tint {background:var(--blue-wash)}
 #plan {background:var(--sand)}
@@ -137,35 +180,21 @@ main img,.search .rgroup img {filter:var(--photo-filter)}
 .impact-bg img {opacity:.62;filter:var(--photo-filter)}
 .impact-bg::after {background:linear-gradient(145deg,color-mix(in srgb,var(--ink) 92%,transparent),color-mix(in srgb,var(--navy) 87%,transparent) 55%,color-mix(in srgb,var(--ocean-dd) 83%,transparent))}
 
-.impact .stat:nth-child(3) b {color:var(--green)}
-.impact .rail-top h3 {color:white}
+.impact .rail-top h3,.impact .sec-head .lede,.impact .stat > span,.impact .person :is(.dt,p) {color:#fff}
 
-.init .pic .tag.teal,.person .season.teal {background:var(--cyan);color:var(--ink)}
-.init .pic .tag.rose,.person .season.rose {background:var(--tangerine);color:var(--ink)}
-.case-body .also span {background:var(--sage-lt);color:var(--ink)}
-.pillar:nth-child(1) .bar {background:var(--ocean)}
-.pillar:nth-child(2) .bar {background:var(--green)}
-.pillar:nth-child(3) .bar {background:var(--gold)}
-.post .thumb .kicker {background:var(--cyan);color:var(--ink)}
-.post:nth-child(2) .kicker {background:var(--green)}
-.post:nth-child(3) .kicker {background:var(--tangerine)}
-.ip-btn--orange {background:var(--tangerine);color:var(--ink)}
-.ip-btn--orange:hover {background:color-mix(in srgb,var(--tangerine) 78%,white)}
-.ip-facts .facts-link {text-decoration:underline;text-underline-offset:4px;color:var(--ocean-dd)}
+.pillar .bar {background:var(--blue)}
+.ip-facts .facts-link {text-decoration:underline;text-underline-offset:4px;color:inherit}
 .search .results a {color:var(--navy)}
 
 @media(prefers-reduced-motion:reduce) {
   .hero-video-toggle {display:none}
   .topshell video {display:none!important}
 }
-.init.accent {background:var(--green);border-color:var(--green);color:var(--navy)}
-.init.accent h3,.init.accent p,.init.accent .go,.init.accent .pic .tag {color:var(--navy)}
-.init.accent .pic .tag {background:var(--sage-lt)}
-.qcard:hover {border-color:var(--cyan)}
-.qcard .arrow {background:var(--cyan);color:var(--ink)}
-.qcard:nth-child(2) .arrow {background:var(--gold)}
-.qcard:nth-child(3) .arrow {background:var(--green)}
-.qcard:nth-child(4) .arrow {background:var(--tangerine)}
+.init.accent {background:var(--fern);border-color:var(--fern);color:#fff}
+.init.accent h3,.init.accent p,.init.accent[href] .go {color:#fff}
+.init.accent[href] .go {text-decoration:underline;text-underline-offset:4px}
+.qcard:hover {border-color:var(--blue-light)}
+.qcard .arrow {background:var(--yellow);color:var(--ink)}
 .plan-media img {width:100%;height:100%;object-fit:cover}
 
 .ip-staticmap img {filter:none}
@@ -205,33 +234,74 @@ main img,.search .rgroup img {filter:var(--photo-filter)}
 @media(max-width:1440px) {
   footer {padding-bottom:calc(72px + env(safe-area-inset-bottom, 0px))}
 }
-#guide .press-card.a {background:linear-gradient(125deg,var(--cyan),var(--ocean))}
-#guide .press-card.a :is(h2,p,.n,.mini span) {color:var(--ink)}
-#guide .press-card.a .mini span {border-color:color-mix(in srgb,var(--ink) 58%,transparent)}
-#guide .press-card.b {background:var(--sunset-wash)}
-.news {background:linear-gradient(125deg,var(--aqua-wash),var(--sage-lt))}
+#guide .press-card.a {background:var(--blue-wash-strong)}
+#guide .press-card.a :is(h2,p,.n) {color:var(--ink)}
+#guide .press-card.b,.news {background:var(--blue-wash)}
 
-.eyebrow::before,.case-tag .prog i.on {background:var(--cyan)}
-.on-dark .eyebrow::before,.livepill i {background:var(--gold)}
-.btn--ochre:hover {background:color-mix(in srgb,var(--gold) 77%,white)}
-.path[aria-pressed="true"],.int[aria-pressed="true"] {
-  background:var(--ocean);
-  border-color:var(--ocean-d);
-  color:var(--ink);
+.eyebrow::before,.case-tag .prog i.on,.on-dark .eyebrow::before,.livepill i {background:var(--blue-light)}
+.topshell .eyebrow::before {background:var(--yellow)}
+.topshell .hero-side .n::before {
+  content:"";
+  display:inline-block;
+  width:8px;
+  height:8px;
+  margin-inline-end:8px;
+  border-radius:50%;
+  background:var(--yellow);
+  border:1px solid color-mix(in srgb,var(--ink) 55%,var(--yellow));
+  vertical-align:1px;
 }
-.ip-tab[aria-selected="true"] {background:var(--cyan);border-color:var(--ocean-d);color:var(--ink)}
-.ip-card {border-top:4px solid var(--gold);background:var(--sand)}
-.ip-steps li:nth-child(2) .ip-num {background:var(--sand)}
-.ip-steps li:nth-child(3) .ip-num {background:var(--sunset-wash)}
-.ip-hero :is(a,button):focus-visible {outline-color:var(--ocean-d)}
-.ip-band :is(a,button):focus-visible {outline-color:var(--gold)}
-.ip-band .ip-kicker {color:var(--gold)}
-.ip-facts div:nth-child(2) dt {color:color-mix(in srgb,var(--ink) 63%,var(--gold))}
-.ip-facts div:nth-child(3) dt {color:color-mix(in srgb,var(--ink) 63%,var(--green))}
-.ip-facts div:nth-child(4) dt {color:color-mix(in srgb,var(--ink) 65%,var(--tangerine))}
-.ip-points .ic,.ip-row .ic {background:var(--aqua-wash);color:var(--ocean-dd)}
-.ip-points li:nth-child(2) .ic,.ip-row:nth-child(2) .ic {background:var(--sand);color:var(--ink)}
-.ip-points li:nth-child(3) .ic,.ip-row:nth-child(3) .ic {background:var(--sage-lt);color:var(--ink)}
-.ip-related a:hover {background:var(--aqua-wash)}
+
+.chip,.path,.int,.ip-tab {
+  background:var(--chip-bg);
+  border:1px solid var(--chip-line);
+  border-radius:var(--chip-radius);
+  color:var(--chip-ink);
+  font-size:14px;
+  font-weight:600;
+  padding:8px 14px;
+  min-height:44px;
+  transition:background .2s,border-color .2s,color .2s;
+}
+.chip:hover,.path:hover,.int:hover,.ip-tab:hover {
+  background:var(--blue-wash);
+  border-color:var(--blue-strong);
+  color:var(--blue-deep);
+  transform:none;
+}
+.path[aria-pressed="true"],.int[aria-pressed="true"],.ip-tab[aria-selected="true"] {
+  background:var(--blue-wash-strong);
+  border-color:var(--blue-strong);
+  color:var(--blue-deep);
+  box-shadow:inset 0 0 0 1px var(--blue-strong);
+}
+.ev .kind,.ev .kind:is(.ongo,.rec),
+:is(.init,.init.feature,.init.accent) .pic .tag,
+.post .thumb .kicker,.person .season,.person .season:is(.teal,.rose),
+.pillar .no,.case-body .also span,.cats span,#guide .mini span,.qcard .num {
+  background:var(--chip-bg);
+  border:1px solid var(--chip-line);
+  border-radius:var(--chip-radius);
+  color:var(--chip-ink);
+}
+
+.init.accent .pic .tag,#recreation-preview .season {
+  background:var(--fern-wash);
+  color:var(--fern-deep);
+}
+.ip-card {border-top:4px solid var(--yellow);background:var(--yellow-wash)}
+.ip-hero :is(a,button):focus-visible {outline-color:var(--blue-strong)}
+.ip-band :is(a,button):focus-visible {outline-color:var(--blue-light)}
+.ip-band .ip-kicker {color:var(--yellow)}
+.ip-band-side :is(h3,li,small) {color:#fff}
+.ip-points .ic,.ip-row .ic,.ip-steps .ip-num {background:var(--blue-wash-strong);color:var(--blue-deep)}
+.ip-crumb a,.ip-row a,.ip-staticmap figcaption a,.ip-related a[href],
+.post[href] .go,.init[href]:not(.feature,.accent) .go,.pillar .foot[href],
+.listing a[href] :is(strong,svg),.search .rgroup a[href] strong {
+  color:var(--link);
+}
+.init.feature[href] .go {color:var(--link-on-dark)}
+.ip-related a[href]:hover {background:var(--fern-wash);border-color:var(--fern)}
+
 
 .utility a:not([href]), .nav-dropdown a:not([href]), .foot-col a:not([href]), .foot-legal a:not([href]), .socials a:not([href]) {opacity:.68;cursor:default}
